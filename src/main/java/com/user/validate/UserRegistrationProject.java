@@ -18,6 +18,7 @@ public class UserRegistrationProject {
 		System.out.println("Valid First Name");
 		else
 		System.out.println("Invalid First Name");
+		
 		System.out.println("Enter Last Name");
 		String lname=s.nextLine();
 		Pattern pattern1=Pattern.compile("^[A-Z]{1}[a-z]{2,}");
@@ -29,6 +30,16 @@ public class UserRegistrationProject {
 
 		else 
 		System.out.println("Invalid last Name");
+		
+		System.out.println("Enter email");
+		String email = s.nextLine();
+		Pattern pattern2 = Pattern.compile("^abc([.+_-]{0,1}[0-9a-z]+)?@[a-z0-9]+(\\.[a-z]{2,}){1,2}$");
+		Matcher matcher2 = pattern2.matcher(email);
+		boolean matchFound2 = matcher2.find();
+		if(matchFound2)
+			System.out.println("Valid Email");
+		else
+			System.out.println("Invalid Email");
 	}
 }
 
