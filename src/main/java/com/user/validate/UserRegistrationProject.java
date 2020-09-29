@@ -15,12 +15,21 @@ public class UserRegistrationProject {
 
 		boolean matchFound=matcher.find();
 		if(matchFound)
-		{
-		System.out.println("Valid");
-		}
+		System.out.println("Valid First Name");
 		else
-		System.out.println("Invalid");
-		}
+		System.out.println("Invalid First Name");
+		System.out.println("Enter Last Name");
+		String lname=s.nextLine();
+		Pattern pattern1=Pattern.compile("^[A-Z]{1}[a-z]{2,}");
+		Matcher matcher1=pattern1.matcher(lname);
+
+		boolean matchFound1=matcher1.find();
+		if(matchFound1)
+		System.out.println("Valid last Name");
+
+		else 
+		System.out.println("Invalid last Name");
 	}
+}
 
 
