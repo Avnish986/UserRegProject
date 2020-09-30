@@ -10,26 +10,25 @@ public class UserRegistration {
 	private final String PH_NO="^[0-9]{2}[ ]{1}[0-9]{10}$";
 	private final String PASS="^(?=.{8,})([a-z]*)(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=]).*$";
 	
-	public String analyseMood(String msg) {
-		if(msg.contains("Sad"))
-			return "SAD";
-		else
-			return "HAPPY";
-		
-	}
-	
-	public boolean validateFirstName(String fname)
+	public boolean validateFirstName(String fname) throws UserRegistrationException
 	{
+		boolean matched = false;
+		
 		Pattern pattern=Pattern.compile(F_NAME);		
 		Matcher matcher=pattern.matcher(fname);
-		boolean matched=matcher.find();
+		matched=matcher.find();
 		if(matched)
 			System.out.println(fname + " valid fname");
-		else
-			System.out.println(fname + " invalid fname");
+
+		if(!matched)
+				throw new UserRegistrationException("Please enter valid first name");
+		
 		return matched;
+	
+		
+		
 	}
-	public boolean validateLastName(String lname)
+	public boolean validateLastName(String lname) throws UserRegistrationException
 	{
 		Pattern pattern=Pattern.compile(L_NAME);		
 		Matcher matcher=pattern.matcher(lname);
@@ -37,10 +36,10 @@ public class UserRegistration {
 		if(matched)
 			System.out.println(lname + " valid lname");
 		else
-			System.out.println(lname + " invalid lname");
+			throw new UserRegistrationException("Please enter valid last name");
 		return matched;
 	}
-	public boolean validateEmail(String email)
+	public boolean validateEmail(String email) throws UserRegistrationException
 	{
 		Pattern pattern=Pattern.compile(EMAIL_ID);		
 		Matcher matcher=pattern.matcher(email);
@@ -48,10 +47,10 @@ public class UserRegistration {
 		if(matched)
 			System.out.println(email + " valid email");
 		else
-			System.out.println(email +  " invalid email");
+			throw new UserRegistrationException("Please enter valid email");
 		return matched;
 	}
-	public boolean validatePhno(String phno)
+	public boolean validatePhno(String phno) throws UserRegistrationException
 	{
 		Pattern pattern=Pattern.compile(PH_NO);		
 		Matcher matcher=pattern.matcher(phno);
@@ -59,10 +58,10 @@ public class UserRegistration {
 		if(matched)
 			System.out.println(phno + " valid phno");
 		else
-			System.out.println(phno + " invalid phno");
+			throw new UserRegistrationException("Please enter valid PHONE NO.");
 		return matched;
 	}
-	public boolean validatePass(String pass)
+	public boolean validatePass(String pass) throws UserRegistrationException
 	{
 		Pattern pattern=Pattern.compile(PASS);		
 		Matcher matcher=pattern.matcher(pass);
@@ -70,7 +69,7 @@ public class UserRegistration {
 		if(matched)
 			System.out.println(pass + " valid password");
 		else
-			System.out.println(pass + " invalid password");
+			throw new UserRegistrationException("Please enter valid password");
 		return matched;
 	}
 	public static void main(String[] args) {
