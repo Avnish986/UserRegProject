@@ -51,7 +51,13 @@ public class ValidEmailTest {
 		public void givenEmailAsVar_ShouldReturnAsPerParaResult()
 		{
 			UserRegistration validator = new UserRegistration();
-			boolean result = validator.validateEmail(this.emailBeTest);
+			boolean result = false;
+			try {
+				result = validator.validateEmail(this.emailBeTest);
+			} catch (UserRegistrationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			Assert.assertEquals(this.expectedResult, result);
 			
 		}
