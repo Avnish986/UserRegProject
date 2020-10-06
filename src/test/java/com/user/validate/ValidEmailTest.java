@@ -50,10 +50,10 @@ public class ValidEmailTest {
 		@Test
 		public void givenEmailAsVar_ShouldReturnAsPerParaResult()
 		{
-			UserRegistration validator = new UserRegistration();
+			UserRegistration validatorEmail = new UserRegistration();
 			boolean result = false;
 			try {
-				result = validator.validateEmail(this.emailBeTest);
+				result = validatorEmail.emailid.validate(this.emailBeTest);
 			} catch (UserRegistrationException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

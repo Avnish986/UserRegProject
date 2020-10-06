@@ -9,12 +9,12 @@ public class UserRegTest {
 	public void givenFname_WhenProper_ShouldReturnTrue()
     {
 		
-		UserRegistration userValidator = new UserRegistration();
+		UserRegistration userValidatorFirst = new UserRegistration();
 		boolean result = false;
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegistrationException.class);
-			result = userValidator.validateFirstName("Avnish");
+			result = userValidatorFirst.firstname.validate("Avnish");
 		} catch (UserRegistrationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -24,12 +24,12 @@ public class UserRegTest {
 	@Test
     public void givenFname_WhenProper_ShouldReturnFalse()
     {
-		UserRegistration userValidator = new UserRegistration();
+		UserRegistration userValidatorFirst = new UserRegistration();
 		boolean result = false;
 		try {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(UserRegistrationException.class);
-			result = userValidator.validateFirstName("avnish");
+			result = userValidatorFirst.firstname.validate("avnish");
 		} catch (UserRegistrationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -39,10 +39,10 @@ public class UserRegTest {
 	@Test
     public void givenLname_WhenProper_ShouldReturnTrue()
     {
-		UserRegistration userValidator = new UserRegistration();
+		UserRegistration userValidatorLast = new UserRegistration();
 		boolean result = false;
 		try {
-			result = userValidator.validateLastName("Gupta");
+			result = userValidatorLast.lastname.validate("Gupta");
 		} catch (UserRegistrationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -52,10 +52,10 @@ public class UserRegTest {
 	@Test
     public void givenLname_WhenProper_ShouldReturnFalse()
     {
-		UserRegistration userValidator = new UserRegistration();
+		UserRegistration userValidatorLast = new UserRegistration();
 		boolean result = false;
 		try {
-			result = userValidator.validateLastName("gupta");
+			result = userValidatorLast.lastname.validate("gupta");
 		} catch (UserRegistrationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,10 +65,10 @@ public class UserRegTest {
 	@Test
     public void givenEmail_WhenProper_ShouldReturnTrue()
     {
-		UserRegistration userValidator = new UserRegistration();
+		UserRegistration userValidatorEmail = new UserRegistration();
 		boolean result = false;
 		try {
-			result = userValidator.validateEmail("abc@gmail.com");
+			result = userValidatorEmail.emailid.validate("abc@gmail.com");
 		} catch (UserRegistrationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -78,10 +78,10 @@ public class UserRegTest {
 	@Test
     public void givenEmail_WhenProper_ShouldReturnFalse()
     {
-		UserRegistration userValidator = new UserRegistration();
+		UserRegistration userValidatorEmail = new UserRegistration();
 		boolean result = false;
 		try {
-			result = userValidator.validateEmail("xyz@@gmail.com");
+			result = userValidatorEmail.emailid.validate("xyz@@gmail.com");
 		} catch (UserRegistrationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -91,10 +91,10 @@ public class UserRegTest {
 	@Test
     public void givenPhNo_WhenProper_ShouldReturnTrue()
     {
-		UserRegistration userValidator = new UserRegistration();
+		UserRegistration userValidatorPh = new UserRegistration();
 		boolean result = false;
 		try {
-			result = userValidator.validatePhno("91 8083803323");
+			result = userValidatorPh.phNo.validate("91 8083803323");
 		} catch (UserRegistrationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -104,10 +104,10 @@ public class UserRegTest {
 	@Test
     public void givenPhNo_WhenProper_ShouldReturnFalse()
     {
-		UserRegistration userValidator = new UserRegistration();
+		UserRegistration userValidatorPh = new UserRegistration();
 		boolean result = false;
 		try {
-			result = userValidator.validatePhno("918083803323");
+			result = userValidatorPh.phNo.validate("918083803323");
 		} catch (UserRegistrationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -117,10 +117,10 @@ public class UserRegTest {
 	@Test
     public void givenPass_WhenProper_ShouldReturnTrue()
     {
-		UserRegistration userValidator = new UserRegistration();
+		UserRegistration userValidatorPass = new UserRegistration();
 		boolean result = false;
 		try {
-			result = userValidator.validatePass("Tes@121313");
+			result = userValidatorPass.password.validate("Tes@121313");
 		} catch (UserRegistrationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -130,10 +130,10 @@ public class UserRegTest {
 	@Test
     public void givenPass_WhenProper_ShouldReturnFalse()
     {
-		UserRegistration userValidator = new UserRegistration();
+		UserRegistration userValidatorPass = new UserRegistration();
 		boolean result = false;
 		try {
-			result = userValidator.validatePass("test@lfhwkf");
+			result = userValidatorPass.password.validate("test@lfhwkf");
 		} catch (UserRegistrationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
